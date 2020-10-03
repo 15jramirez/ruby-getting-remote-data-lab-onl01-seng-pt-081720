@@ -16,4 +16,9 @@ class GetRequester
     response = Net::HTTP.get_response(uri)
     response.body
   end
+  
+  def parse_json
+    results = JSON.parse(self.get_response_body)results.collect.do |result| result["name"]
+  end
+  end
 end
